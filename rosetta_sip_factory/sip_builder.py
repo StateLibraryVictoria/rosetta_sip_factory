@@ -26,8 +26,9 @@ mets_dnx_nsmap = {
     'dnx': 'http://www.exlibrisgroup.com/dps/dnx'
 }
 
+set_encoding = 'utf-8'
 
-def _build_dc_sip(output_dir, sip_title, encoding='unicode'):
+def _build_dc_sip(output_dir, sip_title, encoding=set_encoding):
     dc_xml = ET.Element('{%s}record' % DC_NS, nsmap=dc_nsmap)
     title = ET.SubElement(dc_xml, '{%s}title' % DC_NS, nsmap=dc_nsmap)
     title.text = sip_title
@@ -80,7 +81,7 @@ def build_sip(
         mets_filename=None,
         sip_title=None,
         output_dir=None,
-        encoding="unicode",
+        encoding=set_encoding,
         structmap_type="DEFAULT"):
     """Builds Submission Information Package.
 
@@ -256,7 +257,7 @@ def build_single_file_sip(ie_dmd_dict=None,
                           sip_title=None,
                           output_dir=None,
                           mets_filename=None,
-                          encoding='unicode'):
+                          encoding=set_encoding):
     # build mets
     mets = build_single_file_mets(
         ie_dmd_dict=ie_dmd_dict,
@@ -327,7 +328,7 @@ def build_sip_from_json(
     sip_title=None,
     output_dir=None,
     mets_filename=None,
-    encoding='unicode',
+    encoding=set_encoding,
         structmap_type="DEFAULT"):
     """Builds SIP using JSON for the rep-level information.
 
