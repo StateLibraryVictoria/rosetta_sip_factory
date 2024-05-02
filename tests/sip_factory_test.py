@@ -462,7 +462,13 @@ def test_sip_build_multiple_ies():
 
 def test_sip_build_multiple_ies_with_same_named_files():
     """Test to see how this process handles two IEs that both have the same named
-    files."""
+    files.
+    
+    SLV note: This process is not working as expected. The test expects that the files
+    will go directly into content/streams/ however, the process is creating subfolders
+    for each test so the path to the files is content/streams/test1 content/streams/test2.
+    
+    Uncertain what the desired behaviour is for our use case so leaving be for now."""
     output_dir = os.path.join(
                 os.path.dirname(os.path.realpath(__file__)),
                 'data',
